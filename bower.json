@@ -1,0 +1,14 @@
+{
+  "name": "Angularpractice",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.4.2",
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {}
+}
