@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<!--
+<!--<!DOCTYPE html>
+
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
+
 <html ng-app="app">
     <head>
         <title>TODO supply a title</title>
@@ -11,12 +11,44 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-	<p>Hello</p>
+        <p>Hello</p>
         <div ui-view></div>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         
         <script src="route/index.route.js"></script>
         <script src="controller/index.controller.js"></script>
+    </body>
+</html>-->
+
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body ng-app="fileUpload">
+        <h1>Angular Node File Upload</h1>
+        <form  ng-controller="MyCtrl as up" name="up.upload_form">
+            Single Image with validations
+            <input 
+                type="file" 
+                ngf-select 
+                ng-model="up.file" 
+                name="file" 
+                ngf-pattern="'image/*'"
+                accept="image/*" 
+                ngf-max-size="20MB" 
+                />
+            Image thumbnail: <img style="width:100px;" ng-if="up.file || '/thumb.jpg'"/>
+            <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+            <i ng-show="up.upload_form.file.$error.maxSize">File too large 
+                {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+            <button type="submit" ng-click="up.submit()">submit</button>
+            <p>{{up.progress}}
+        </form>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+        <script type="text/javascript" src="controller/mainCtrl.js"></script>
     </body>
 </html>
